@@ -1,4 +1,4 @@
-module github.com/traefik/plugindemowasm
+module github.com/ikala-ben-liu/bogus-kolr
 
 go 1.23
 
