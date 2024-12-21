@@ -2,6 +2,10 @@
 
 default: test checks build
 
+init:
+	brew tap tinygo-org/tools
+	brew install tinygo
+
 test:
 	go test -v -cover ./...
 
