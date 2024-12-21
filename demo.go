@@ -1,10 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"os"
-
 	"github.com/http-wasm/http-wasm-guest-tinygo/handler"
 	"github.com/http-wasm/http-wasm-guest-tinygo/handler/api"
 )
@@ -16,17 +12,17 @@ type Config struct {
 
 func main() {
 	var config Config
-	err := json.Unmarshal(handler.Host.GetConfig(), &config)
-	if err != nil {
-		handler.Host.Log(api.LogLevelError, fmt.Sprintf("Could not load config %v", err))
-		os.Exit(1)
-	}
+	//err := json.Unmarshal(handler.Host.GetConfig(), &config)
+	//if err != nil {
+	//	handler.Host.Log(api.LogLevelError, fmt.Sprintf("Could not load config %v", err))
+	//	os.Exit(1)
+	//}
 
-	mw, err := New(config)
-	if err != nil {
-		handler.Host.Log(api.LogLevelError, fmt.Sprintf("Could not load config %v", err))
-		os.Exit(1)
-	}
+	mw, _ := New(config)
+	//if err != nil {
+	//	handler.Host.Log(api.LogLevelError, fmt.Sprintf("Could not load config %v", err))
+	//	os.Exit(1)
+	//}
 	handler.HandleRequestFn = mw.handleRequest
 }
 
